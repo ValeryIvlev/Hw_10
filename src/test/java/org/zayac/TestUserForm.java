@@ -20,13 +20,13 @@ public class TestUserForm {
 
         SelenideLogger.addListener("allure", new AllureSelenide());
 
-        step("Открытие сайта", () -> {
+        step("Open site", () -> {
                     open("https://demoqa.com/automation-practice-form");
                     executeJavaScript("$('#fixedban').remove()");
                     executeJavaScript("$('footer').remove()");
                 });
 
-        step("Заполнение формы", () -> {
+        step("Filling out the form", () -> {
         $("#firstName").setValue("Ivan");
         $("#lastName").setValue("Ivanov");
         $("#userEmail").setValue("Mail@mail.ru");
@@ -48,7 +48,7 @@ public class TestUserForm {
         $("#submit").click();
         });
 
-        step("Проверка заполнения формы", () -> {
+        step("Checking the filling", () -> {
         $(".table-responsive").shouldHave(text("Ivan Ivanov"), text("Mail@mail.ru"), text("male"), text("7999111123"),
                 text("04 July,1993"), text("Economics"), text("Sports"), text("file.png"), text("Subject one or no one:)"),
                 text("NCR Noida"));

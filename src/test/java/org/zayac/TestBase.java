@@ -19,7 +19,7 @@ public class TestBase {
 
     }
 
-    @BeforeEach
+/*    @BeforeEach
     void setUp() {
 
        Attachments.screenshotAs("Last screenshot");
@@ -29,6 +29,6 @@ public class TestBase {
 
 
     }
-
+*/
 }
 
