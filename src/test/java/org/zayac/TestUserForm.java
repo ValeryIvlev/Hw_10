@@ -50,5 +50,4 @@ public class TestUserForm {
         $("#closeLargeModal").click();
         });
     }
-
 }

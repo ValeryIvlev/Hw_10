@@ -21,13 +21,10 @@ public class TestBase {
 
     @BeforeEach
     void setUp() {
-
        Attachments.screenshotAs("Last screenshot");
        Attachments.addVideo();
        Attachments.browserConsoleLogs();
        Attachments.pageSource();
-
-
     }
 
 }
