@@ -16,7 +16,7 @@ public class TestUserForm {
         SelenideLogger.addListener("allure", new AllureSelenide());
 
         step("Open site", () -> {
-                    //open("https://demoqa.com/automation-practice-form");
+                    open("https://demoqa.com/automation-practice-form");
                     executeJavaScript("$('#fixedban').remove()");
                     executeJavaScript("$('footer').remove()");
                 });
