@@ -13,8 +13,6 @@ public class TestUserForm {
     @Test
     void testFrom() {
 
-        SelenideLogger.addListener("allure", new AllureSelenide());
-
         step("Open site", () -> {
                     open("https://demoqa.com/automation-practice-form");
                     executeJavaScript("$('#fixedban').remove()");

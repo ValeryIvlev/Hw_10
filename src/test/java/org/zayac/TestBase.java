@@ -2,37 +2,36 @@ package org.zayac;
 
 import com.codeborne.selenide.Browsers;
 import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.logevents.SelenideLogger;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import io.qameta.allure.selenide.AllureSelenide;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
+import org.openqa.selenium.remote.DesiredCapabilities;
 
-import java.io.IOException;
-
-import static com.codeborne.selenide.Selenide.webdriver;
-import static io.qameta.allure.Allure.attachment;
-import static java.nio.channels.SocketChannel.open;
 
 public class TestBase {
 
 
     @BeforeAll
-    static void BeforeAll() throws IOException {
-
-        WebDriverManager.chromedriver().setup();
-        Configuration.timeout = 60000;
-        Configuration.headless = false;
-        Configuration.webdriverLogsEnabled = true;
-        Configuration.browser = Browsers.CHROME;
-        open();
+    static void BeforeAll() {
+        Configuration.baseUrl = "https://demoqa.com";
+        Configuration.browserSize = "1920x1080";
+        Configuration.timeout = 10000;
 
     }
 
-    @BeforeEach
+    @AfterEach
     void setUp() {
        Attachments.screenshotAs("Last screenshot");
        Attachments.addVideo();
        Attachments.browserConsoleLogs();
        Attachments.pageSource();
+    }
+    @BeforeEach
+    void addListener() {
+        SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
     }
 
 }
